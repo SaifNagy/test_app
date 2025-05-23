@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/core/helpers/extentions.dart';
+import 'package:test_app/core/routing/app_routes.dart';
 import 'package:test_app/features/home/logic/posts_cubit.dart';
 import 'package:test_app/features/home/logic/posts_state.dart';
 
@@ -30,30 +32,34 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: responePosts.length,
               itemBuilder: (context, index) {
                 final post = responePosts[index];
-                return Card(
-                  elevation: 4,
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          post.title??'',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                return GestureDetector(
+                  onTap: () => context.pushNamed(AppRoutes.postsDetails,arguments:post.id,
+),
+                  child: Card(
+                    elevation: 4,
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            post.title??'',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          post.body??'',
-                          style: const TextStyle(fontSize: 14, color: Colors.black54),
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            post.body??'',
+                            style: const TextStyle(fontSize: 14, color: Colors.black54),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
