@@ -1,5 +1,5 @@
 class AppRoutes{
   static  const String home = '/';
-  static  const String postsDetails = '/postsDetails';
+  static  const String postsDetails = '/postDetails';
 
 }
