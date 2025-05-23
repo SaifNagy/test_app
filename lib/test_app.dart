@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_app/core/routing/app_router.dart';
@@ -17,7 +16,7 @@ class TestApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Test App',
-        theme: ThemeData(scaffoldBackgroundColor: Colors.grey.shade200),
+        theme: ThemeData(scaffoldBackgroundColor: Colors.lightBlue.shade50),
         onGenerateRoute: appRouter.onGenerateRoute,
         initialRoute: AppRoutes.home,
       ),
